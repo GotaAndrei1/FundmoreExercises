@@ -1,0 +1,10 @@
+<h1>Delete Order</h1>
+<div *ngIf="order">
+  <p>Are you sure you want to delete the following order?</p>
+  <p>ID: {{ order.id }}</p>
+  <p>Product: {{ order.product }}</p>
+  <p>Quantity: {{ order.quantity }}</p>
+  <p>Price: {{ order.price }}</p>
+  <button (click)="deleteOrder()">Delete</button>
+  <a routerLink="/orders">Cancel</a>
+</div>

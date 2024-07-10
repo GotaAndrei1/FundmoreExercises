@@ -1,0 +1,24 @@
+<h1>Add Order</h1>
+<form [formGroup]="orderForm" (ngSubmit)="onSubmit()">
+  <label for="product">Product</label>
+  <input id="product" formControlName="product">
+  <div *ngIf="orderForm.get('product')?.invalid && (orderForm.get('product')?.dirty || orderForm.get('product')?.touched)">
+    <div *ngIf="orderForm.get('product')?.errors?.['required']">Product is required.</div>
+  </div>
+
+  <label for="quantity">Quantity</label>
+  <input id="quantity" type="number" formControlName="quantity">
+  <div *ngIf="orderForm.get('quantity')?.invalid && (orderForm.get('quantity')?.dirty || orderForm.get('quantity')?.touched)">
+    <div *ngIf="orderForm.get('quantity')?.errors?.['required']">Quantity is required.</div>
+    <div *ngIf="orderForm.get('quantity')?.errors?.['min']">Quantity must be at least 1.</div>
+  </div>
+
+  <label for="price">Price</label>
+  <input id="price" type="number" formControlName="price">
+  <div *ngIf="orderForm.get('price')?.invalid && (orderForm.get('price')?.dirty || orderForm.get('price')?.touched)">
+    <div *ngIf="orderForm.get('price')?.errors?.['required']">Price is required.</div>
+    <div *ngIf="orderForm.get('price')?.errors?.['min']">Price must be greater than 0.</div>
+  </div>
+
+  <button type="submit" [disabled]="orderForm.invalid">Add Order</button>
+</form>
