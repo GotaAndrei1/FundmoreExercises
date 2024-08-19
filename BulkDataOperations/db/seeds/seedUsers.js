@@ -1,5 +1,5 @@
-const pool = require("../../config/database").default;
-const { generateUsers } = require("../../utils/dataGenerator");
+import pool from "../../config/database";
+import { generateUsers } from "../../utils/dataGenerator";
 
 const seedUsers = async () => {
     const client = await pool.connect();

@@ -1,8 +1,8 @@
-const pool = require("../config/database").default;
+import pool from "../config/database";
 
 const getUsers = async () => {
     const result = await pool.query("SELECT * FROM users");
     return result.rows;
 };
 
-module.exports = { getUsers };
+export default { getUsers };
